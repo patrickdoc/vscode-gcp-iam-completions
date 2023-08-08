@@ -142,6 +142,24 @@ suite('Role namespace tests', () => {
             await testCompletion(testFile, 'yaml', content, expected);
         }
     });
+    test('Separate word', async () => {
+        {
+            const content = [
+                'name:|'
+            ].join('\n');
+            const expected = { label: 'roles', notAvailable: true };
+            await testCompletion(testFile, 'yaml', content, expected);
+        }
+    });
+    test('Separate word quotes', async () => {
+        {
+            const content = [
+                'name:"|'
+            ].join('\n');
+            const expected = { label: 'roles', notAvailable: true };
+            await testCompletion(testFile, 'yaml', content, expected);
+        }
+    });
 });
 
 interface ItemDescription {
