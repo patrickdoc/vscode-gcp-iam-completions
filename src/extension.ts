@@ -44,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
                 // Role ID naming rules: https://cloud.google.com/iam/docs/roles-overview#custom-role-creation
                 const roleIdRegex = /^.*roles\/[a-zA-Z_\.]*$/;
 
-                const linePrefix = document.lineAt(position).text.slice(0,position.character+1);
+                const linePrefix = document.lineAt(position).text.slice(0, position.character + 1);
 
                 // Completions for available roles
                 if (roleIdRegex.test(linePrefix)) {
@@ -55,8 +55,25 @@ export function activate(context: vscode.ExtensionContext) {
                 const range = document.getWordRangeAtPosition(position, /[a-z]+/) || new vscode.Range(position, position);
                 const currentWord = range ? document.getText(range) : '';
 
+                // If we are starting a new word (currentWord === ''), skip some cases where we don't want to complete
+                // Ex. "name:ro" -> Should not complete because ro is not a separate word
+                let shouldComplete = true;
+                if (currentWord === '') {
+                    for (let i = linePrefix.length - 1; i >= 0; i--) {
+                        const c = linePrefix.charAt(i);
+                        if (/\s/.test(c)) {
+                            break;
+                        }
+                        // We hit something other than a quote character, so probably don't want to complete
+                        if (!/[`'"]/.test(c)) {
+                            shouldComplete = false;
+                            break;
+                        }
+                    }
+                }
+
                 // "Namespace" completions for roles: predefined roles, custom organization roles, and custom project roles
-                if ("roles".startsWith(currentWord)) {
+                if (shouldComplete && "roles".startsWith(currentWord)) {
                     const item = new vscode.CompletionItem("roles");
                     item.detail = "Predefined GCP IAM roles";
                     item.documentation = new vscode.MarkdownString("[Predefined role documentation](https://cloud.google.com/iam/docs/understanding-roles)");
