@@ -1,0 +1,52 @@
+name: Update IAM Roles
+
+on:
+  schedule:
+    - cron: '2/5 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - run: npm ci
+
+      - name: Regenerate Roles
+        run: npm run save-roles
+        env:
+          API_KEY: ${{ secrets.GCP_KEY }}
+
+      - run: npm version patch
+
+      - name: Check if new roles
+        id: git_diff
+        run: |
+          if git diff --quiet src/google/iam.ts; then
+            echo "No changes detected"
+            echo "::set-output name=changes::false"
+          else
+            echo "Changes detected"
+            echo "::set-output name=changes::true"
+          fi
+
+      - name: Commit changed roles
+        if: steps.git_diff.outputs.changes == 'true'
+        run: |
+          git add src/google/data/roles.json
+          git commit --amend
+          git push
+
+      - name: Create release
+        if: steps.git_diff.outputs.changes == 'true'
+        uses: softprops/action-gh-release@v1
+
+      - name: Publish
+        if: steps.git_diff.outputs.changes == 'true'
+        run: npm run deploy
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}

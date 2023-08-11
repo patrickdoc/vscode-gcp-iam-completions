@@ -1,14 +1,17 @@
 import * as fs from 'fs';
+import { GoogleAuth } from 'google-auth-library';
 import { google, iam_v1 } from 'googleapis';
 const iam = google.iam('v1');
 
 export const getRoles = async (): Promise<iam_v1.Schema$Role[]> => {
-    const authClient = new google.auth.GoogleAuth({
+
+    // Use API Key if provided, otherwise Application Default Credentials
+    const auth: string | GoogleAuth = process.env.API_KEY ?? new google.auth.GoogleAuth({
         scopes: ['https://www.googleapis.com/auth/iam']
     });
 
     const request: iam_v1.Params$Resource$Roles$List = {
-        auth: authClient,
+        auth: auth,
         view: 'FULL',
     };
 
