@@ -2,7 +2,7 @@ name: Update IAM Roles
 
 on:
   schedule:
-    - cron: '37 3 * * *'
+    - cron: '37 * * * *'
 
 jobs:
   build:
