@@ -16,12 +16,12 @@ jobs:
 
       - run: npm ci
 
+      - run: npm version patch
+
       - name: Regenerate Roles
         run: npm run save-roles
         env:
           API_KEY: ${{ secrets.GCP_KEY }}
-
-      - run: npm version patch
 
       - name: Check if new roles
         id: git_diff
@@ -30,16 +30,12 @@ jobs:
             echo "No changes detected"
             echo "::set-output name=changes::false"
           else
-            echo "Changes detected"
+            echo "Changes detected, committing and pushing"
+            git add src/google/data/roles.json
+            git commit --amend
+            git push
             echo "::set-output name=changes::true"
           fi
-
-      - name: Commit changed roles
-        if: steps.git_diff.outputs.changes == 'true'
-        run: |
-          git add src/google/data/roles.json
-          git commit --amend
-          git push
 
       - name: Create release
         if: steps.git_diff.outputs.changes == 'true'
