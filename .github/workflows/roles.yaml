@@ -29,9 +29,9 @@ jobs:
       - name: Check if new roles
         id: git_diff
         run: |
-          if git diff --quiet src/google/iam.ts; then
+          if git diff --quiet src/google/data/roles.json; then
             echo "No changes detected"
-            echo "::set-output name=changes::false"
+            echo "changes=false" >> $GITHUB_OUTPUT
           else
             echo "Changes detected, committing and pushing"
             git config user.email "patrick.dougherty.0208@gmail.com"
@@ -39,7 +39,7 @@ jobs:
             git add src/google/data/roles.json
             git commit --amend
             git push
-            echo "::set-output name=changes::true"
+            echo "changes=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Create release
