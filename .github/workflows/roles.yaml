@@ -36,6 +36,9 @@ jobs:
           else
             echo "Changes detected, committing and pushing"
 
+            git config user.email "patrick.doc@ameritech.net"
+            git config user.name "(Workflow) Patrick Dougherty"
+
             VERSION=$(npm version patch --git-tag-version false)
             VERSION=${VERSION:1}
 
