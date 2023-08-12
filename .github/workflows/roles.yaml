@@ -2,7 +2,7 @@ name: Update IAM Roles
 
 on:
   schedule:
-    - cron: '37 * * * *'
+    - cron: '37 3 * * SUN'
   workflow_dispatch:
 
 permissions:
