@@ -3,6 +3,7 @@ name: Update IAM Roles
 on:
   schedule:
     - cron: '37 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,17 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{secrets.GH_PAT}}
 
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
       - run: npm ci
-
-      - run: |
-          git config user.email "patrick.dougherty.0208@gmail.com"
-          git config user.name "(Workflow) Patrick Dougherty"
-          npm version patch
 
       - name: Regenerate Roles
         run: npm run save-roles
@@ -37,17 +35,24 @@ jobs:
             echo "changes=false" >> $GITHUB_OUTPUT
           else
             echo "Changes detected, committing and pushing"
-            git config user.email "patrick.dougherty.0208@gmail.com"
-            git config user.name "(Workflow) Patrick Dougherty"
-            git add src/google/data/roles.json
-            git commit --amend --no-edit
-            git push
+
+            VERSION=$(npm version patch --git-tag-version false)
+            VERSION=${VERSION:1}
+
+            git add src/google/data/roles.json package.json package-lock.json
+            git commit -m "${VERSION} Bumping roles.json"
+            git tag -a "${VERSION}" -m "Automated roles.json update (${VERSION})"
+            git push origin "${VERSION}"
             echo "changes=true" >> $GITHUB_OUTPUT
+            echo "version=${VERSION}" >> ${GITHUB_OUTPUT}
           fi
 
       - name: Create release
         if: steps.git_diff.outputs.changes == 'true'
         uses: softprops/action-gh-release@v1
+        with:
+          body: |
+            Automated roles.json bump. See GCP IAM roles changelog [here](https://cloud.google.com/iam/docs/permissions-change-log)
 
       - name: Publish
         if: steps.git_diff.outputs.changes == 'true'
