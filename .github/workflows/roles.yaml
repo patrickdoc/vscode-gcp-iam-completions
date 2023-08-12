@@ -45,7 +45,7 @@ jobs:
             git add src/google/data/roles.json package.json package-lock.json
             git commit -m "${VERSION} Bumping roles.json"
             git tag -a "${VERSION}" -m "Automated roles.json update (${VERSION})"
-            git push origin "${VERSION}"
+            git push --atomic origin main "${VERSION}"
             echo "changes=true" >> $GITHUB_OUTPUT
             echo "version=${VERSION}" >> ${GITHUB_OUTPUT}
           fi
