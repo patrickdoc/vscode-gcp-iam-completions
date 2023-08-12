@@ -56,6 +56,7 @@ jobs:
         with:
           body: |
             Automated roles.json bump. See GCP IAM roles changelog [here](https://cloud.google.com/iam/docs/permissions-change-log)
+          tag_name: ${{steps.git_diff.outputs.version}}
 
       - name: Publish
         if: steps.git_diff.outputs.changes == 'true'
