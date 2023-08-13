@@ -1,6 +1,5 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as fs from 'fs';
 import * as vscode from 'vscode';
 import { iam_v1 } from 'googleapis';
 
@@ -32,11 +31,25 @@ const getCompletions = (range: vscode.Range): vscode.CompletionItem[] => {
     return result;
 };
 
+const getRoleNames = (): string[] => {
+    const result: string[] = [];
+
+    gcpRoles.forEach((role: iam_v1.Schema$Role) => {
+        if (role.name) {
+            result.push(role.name);
+        }
+    });
+    return result;
+};
+
+export async function showQuickPick() {
+}
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    const disposable = vscode.languages.registerCompletionItemProvider(
+    const completions = vscode.languages.registerCompletionItemProvider(
         '*',
         {
             provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, _token: vscode.CancellationToken, _context: vscode.CompletionContext) {
@@ -90,14 +103,43 @@ export function activate(context: vscode.ExtensionContext) {
                     ];
                 }
 
-
                 return undefined;
             }
         },
         '/'
     );
 
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(completions);
+
+    context.subscriptions.push(vscode.commands.registerCommand('gcp-iam-completions.diffRoles', async () => {
+	    const result: string[] | undefined = await vscode.window.showQuickPick(getRoleNames(), {
+           placeHolder: 'bigquery.dataEditor',
+           canPickMany: true,
+	    });
+
+        if (result) {
+            if (result.length === 2) {
+                // This opens a second editor for the left file, which is not great, but just how vscode works
+                // https://github.com/microsoft/vscode/issues/165123#issuecomment-1340608643
+                await vscode.commands.executeCommand('workbench.files.action.compareNewUntitledTextFiles');
+                const editors: readonly vscode.TextEditor[] = vscode.window.visibleTextEditors;
+                editors[0].edit((editBuilder) => {
+                    editBuilder.insert(
+                        new vscode.Position(0,0),
+                        JSON.stringify(gcpRoles.find((role: iam_v1.Schema$Role, _i, ) => result[0] === role.name), null, 2)
+                    );
+                });
+                editors[1].edit((editBuilder) => {
+                    editBuilder.insert(
+                        new vscode.Position(0,0),
+                        JSON.stringify(gcpRoles.find((role: iam_v1.Schema$Role, _i, ) => result[1] === role.name), null, 2)
+                    );
+                });
+            } else {
+	            vscode.window.showErrorMessage(`Please select exactly 2 roles to compare, got ${result.length}`);
+            }
+        }
+    }));
 }
 
 // This method is called when your extension is deactivated
