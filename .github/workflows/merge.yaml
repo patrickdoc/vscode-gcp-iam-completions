@@ -96,8 +96,8 @@ jobs:
         with:
           tag_name: ${{steps.squash_and_bump.outputs.version}}
 
-      #- name: Publish
-      #  if: steps.squash_and_bump.outputs.version != ''
-      #  run: npm run deploy
-      #  env:
-      #    VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      - name: Publish
+        if: steps.squash_and_bump.outputs.version != ''
+        run: npm run deploy
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
