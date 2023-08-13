@@ -63,7 +63,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            octokit.rest.pulls.merge({
+            github.rest.pulls.merge({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.issue.number,
