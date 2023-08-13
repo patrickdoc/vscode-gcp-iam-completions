@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import { GoogleAuth } from 'google-auth-library';
 import { google, iam_v1 } from 'googleapis';
-
 const iam = google.iam('v1');
 
 export const getRoles = async (): Promise<iam_v1.Schema$Role[]> => {
