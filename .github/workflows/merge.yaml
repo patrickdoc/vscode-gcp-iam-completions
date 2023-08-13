@@ -1,0 +1,99 @@
+name: Merge
+
+on:
+  pull_request:
+    types:
+      - labeled
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if label is version:none/patch/minor/major
+        id: check_label
+        env:
+          LABEL: ${{ github.event.label.name }}
+        run: |
+          if [ "${LABEL}" == "version:none" ]; then
+            echo "label=none" >> ${GITHUB_OUTPUT}
+          elif [ "${LABEL}" == "version:patch" ]; then
+            echo "label=patch" >> ${GITHUB_OUTPUT}
+          elif [ "${LABEL}" == "version:minor" ]; then
+            echo "label=minor" >> ${GITHUB_OUTPUT}
+          elif [ "${LABEL}" == "version:major" ]; then
+            echo "label=major" >> ${GITHUB_OUTPUT}
+          else
+            echo "Label is not version:none, version:patch, version:minor, or version:major"
+          fi
+
+      - uses: actions/checkout@v3
+        with:
+          token: ${{secrets.GH_PAT}}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - run: npm ci
+
+      - name: Update PR
+        if: steps.check_label.outputs.label == 'patch' || steps.check_label.outputs.label == 'minor' || steps.check_label.outputs.label == 'major'
+        id: squash_and_bump
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          LABEL: ${{ steps.check_label.outputs.label }}
+        run: |
+            git config user.email "patrick.doc@ameritech.net"
+            git config user.name "(Workflow) Patrick Dougherty"
+
+            VERSION=$(npm version "${LABEL}" --git-tag-version false)
+            VERSION=${VERSION:1}
+            echo "version=${VERSION}" >> ${GITHUB_OUTPUT}
+
+            git add .
+            git commit -m "Auto bump version: ${VERSION}"
+            git push
+      
+      - name: Merge PR
+        if: steps.check_label.outputs.label != ''
+        uses: actions/github-script@v6
+        with:
+          script: |
+            octokit.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              merge_method: "squash",
+            });
+
+      - name: Tag main
+        if: steps.squash_and_bump.outputs.version != ''
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          VERSION: ${{ steps.squash_and_bump.outputs.version }}
+        run: |
+            git config user.email "patrick.doc@ameritech.net"
+            git config user.name "(Workflow) Patrick Dougherty"
+
+            git checkout main
+            git pull
+
+            git tag -a "${VERSION}" -m "${VERSION} ${PR_TITLE} (#${PR_NUMBER})"
+            git push origin "${VERSION}"
+
+      - name: Create release
+        if: steps.squash_and_bump.outputs.version != ''
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{steps.squash_and_bump.outputs.version}}
+
+      #- name: Publish
+      #  if: steps.squash_and_bump.outputs.version != ''
+      #  run: npm run deploy
+      #  env:
+      #    VSCE_PAT: ${{ secrets.VSCE_PAT }}
