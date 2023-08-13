@@ -1,4 +1,4 @@
-name: Merge and Bump
+name: Bump and Merge
 
 on:
   pull_request:
