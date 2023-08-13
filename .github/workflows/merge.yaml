@@ -1,4 +1,4 @@
-name: Bump and Merge
+name: Merge and Bump
 
 on:
   pull_request:
@@ -32,6 +32,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{secrets.GH_PAT}}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - uses: actions/setup-node@v3
         with:
