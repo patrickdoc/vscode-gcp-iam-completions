@@ -8,7 +8,7 @@
     "email": "patrick.dougherty.0208@gmail.com"
   },
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "bugs": "https://github.com/patrickdoc/vscode-gcp-iam-completions/issues",
   "repository": {
     "type": "git",
@@ -16,7 +16,15 @@
   },
   "icon": "images/icon.png",
   "engines": {
-    "vscode": "^1.63.0"
+    "vscode": "^1.75.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "gcp-iam-completions.diffRoles",
+        "title": "GCP IAM: Diff roles"
+      }
+    ]
   },
   "categories": [
     "Snippets"
@@ -52,7 +60,7 @@
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.4.8",
-    "@types/vscode": "^1.63.0",
+    "@types/vscode": "^1.75.0",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "@vscode/test-electron": "^2.3.4",
