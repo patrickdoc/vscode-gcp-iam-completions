@@ -9765,8 +9765,8 @@
   },
   {
     "name": "roles/cloudconfig.serviceAgent",
-    "title": "Cloud Config Service Agent",
-    "description": "Gives Cloud Config account access to manage account resources. This includes CloudBuild and GCS.",
+    "title": "Infrastructure Manager Service Agent",
+    "description": "Gives Infrastructure Manager service agent access to managed resources",
     "includedPermissions": [
       "cloudbuild.builds.create",
       "cloudbuild.builds.get",
@@ -10147,6 +10147,7 @@
       "cloudbuild.builds.update",
       "cloudbuild.workerpools.use",
       "iam.serviceAccounts.actAs",
+      "iam.serviceAccounts.getAccessToken",
       "logging.logEntries.create",
       "pubsub.topics.get",
       "pubsub.topics.publish",
@@ -41486,6 +41487,7 @@
       "cloudfunctions.functions.get",
       "compute.instanceGroupManagers.get",
       "compute.networkAttachments.get",
+      "compute.regionOperations.get",
       "container.clusters.get",
       "container.deployments.create",
       "container.deployments.delete",
@@ -52076,6 +52078,7 @@
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -52089,6 +52092,7 @@
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -52102,6 +52106,7 @@
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -52146,6 +52151,7 @@
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
