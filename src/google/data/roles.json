@@ -620,6 +620,7 @@
       "aiplatform.notebookRuntimes.start",
       "aiplatform.notebookRuntimes.update",
       "aiplatform.notebookRuntimes.upgrade",
+      "aiplatform.operations.list",
       "aiplatform.pipelineJobs.create",
       "aiplatform.schedules.create",
       "aiplatform.schedules.delete",
@@ -701,6 +702,7 @@
       "aiplatform.notebookRuntimes.assign",
       "aiplatform.notebookRuntimes.get",
       "aiplatform.notebookRuntimes.list",
+      "aiplatform.operations.list",
       "aiplatform.pipelineJobs.create",
       "aiplatform.schedules.create",
       "aiplatform.schedules.delete",
@@ -1291,7 +1293,8 @@
       "aiplatform.notebookRuntimes.list",
       "aiplatform.notebookRuntimes.start",
       "aiplatform.notebookRuntimes.update",
-      "aiplatform.notebookRuntimes.upgrade"
+      "aiplatform.notebookRuntimes.upgrade",
+      "aiplatform.operations.list"
     ],
     "stage": "GA",
     "etag": "AA=="
@@ -1307,7 +1310,8 @@
       "aiplatform.notebookRuntimeTemplates.list",
       "aiplatform.notebookRuntimes.assign",
       "aiplatform.notebookRuntimes.get",
-      "aiplatform.notebookRuntimes.list"
+      "aiplatform.notebookRuntimes.list",
+      "aiplatform.operations.list"
     ],
     "stage": "GA",
     "etag": "AA=="
@@ -7361,6 +7365,7 @@
       "aiplatform.notebookRuntimes.start",
       "aiplatform.notebookRuntimes.update",
       "aiplatform.notebookRuntimes.upgrade",
+      "aiplatform.operations.list",
       "bigquery.bireservations.get",
       "bigquery.bireservations.update",
       "bigquery.capacityCommitments.create",
@@ -7533,7 +7538,7 @@
   {
     "name": "roles/bigquery.studioUser",
     "title": "Bigquery Studio User",
-    "description": "Roll up Role of BigQuery User, Runtime User and Dataform code creater",
+    "description": "Roll up Role of BigQuery Job User, Runtime User and Dataform code creater",
     "includedPermissions": [
       "aiplatform.notebookRuntimeTemplates.apply",
       "aiplatform.notebookRuntimeTemplates.get",
@@ -7542,29 +7547,9 @@
       "aiplatform.notebookRuntimes.assign",
       "aiplatform.notebookRuntimes.get",
       "aiplatform.notebookRuntimes.list",
-      "bigquery.bireservations.get",
-      "bigquery.capacityCommitments.get",
-      "bigquery.capacityCommitments.list",
+      "aiplatform.operations.list",
       "bigquery.config.get",
-      "bigquery.datasets.create",
-      "bigquery.datasets.get",
-      "bigquery.datasets.getIamPolicy",
       "bigquery.jobs.create",
-      "bigquery.jobs.list",
-      "bigquery.models.list",
-      "bigquery.readsessions.create",
-      "bigquery.readsessions.getData",
-      "bigquery.readsessions.update",
-      "bigquery.reservationAssignments.list",
-      "bigquery.reservationAssignments.search",
-      "bigquery.reservations.get",
-      "bigquery.reservations.list",
-      "bigquery.routines.list",
-      "bigquery.savedqueries.get",
-      "bigquery.savedqueries.list",
-      "bigquery.tables.list",
-      "bigquery.transfers.get",
-      "bigquerymigration.translation.translate",
       "dataform.locations.get",
       "dataform.locations.list",
       "dataform.repositories.create",
@@ -30539,6 +30524,7 @@
       "serviceusage.quotas.get",
       "serviceusage.services.get",
       "serviceusage.services.list",
+      "serviceusage.services.use",
       "storage.buckets.create",
       "storage.buckets.createTagBinding",
       "storage.buckets.delete",
@@ -32022,6 +32008,7 @@
       "dialogflow.participants.update",
       "dialogflow.sessions.detectIntent"
     ],
+    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -33005,6 +32992,7 @@
       "dlp.tableDataProfiles.get",
       "dlp.tableDataProfiles.list"
     ],
+    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -34815,6 +34803,7 @@
       "dlp.tableDataProfiles.get",
       "dlp.tableDataProfiles.list"
     ],
+    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -56409,6 +56398,19 @@
     "etag": "AA=="
   },
   {
+    "name": "roles/lookerstudio.proManager",
+    "title": "Looker Studio Pro Manager",
+    "description": "Looker Studio Pro Manager",
+    "includedPermissions": [
+      "lookerstudio.pro.manage",
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list",
+      "resourcemanager.projects.updateLiens"
+    ],
+    "stage": "BETA",
+    "etag": "AA=="
+  },
+  {
     "name": "roles/managedidentities.admin",
     "title": "Google Cloud Managed Identities Admin",
     "description": "Full access to Google Cloud Managed Identities Domains and related resources. Intended to be granted on a project-level.",
@@ -58145,6 +58147,12 @@
       "storage.buckets.listTagBindings",
       "storage.buckets.setIamPolicy",
       "storage.buckets.update",
+      "storage.managedFolders.create",
+      "storage.managedFolders.delete",
+      "storage.managedFolders.get",
+      "storage.managedFolders.getIamPolicy",
+      "storage.managedFolders.list",
+      "storage.managedFolders.setIamPolicy",
       "storage.multipartUploads.abort",
       "storage.multipartUploads.create",
       "storage.multipartUploads.list",
@@ -65417,6 +65425,13 @@
       "commercebusinessenablement.resellerDiscountOffers.cancel",
       "commercebusinessenablement.resellerDiscountOffers.create",
       "commercebusinessenablement.resellerDiscountOffers.list",
+      "commercebusinessenablement.resellerPrivateOfferPlans.cancel",
+      "commercebusinessenablement.resellerPrivateOfferPlans.create",
+      "commercebusinessenablement.resellerPrivateOfferPlans.delete",
+      "commercebusinessenablement.resellerPrivateOfferPlans.get",
+      "commercebusinessenablement.resellerPrivateOfferPlans.list",
+      "commercebusinessenablement.resellerPrivateOfferPlans.publish",
+      "commercebusinessenablement.resellerPrivateOfferPlans.update",
       "commerceoffercatalog.agreements.get",
       "commerceoffercatalog.agreements.list",
       "commerceoffercatalog.documents.get",
@@ -67837,6 +67852,7 @@
       "dlp.subscriptions.get",
       "dlp.subscriptions.list",
       "dlp.subscriptions.update",
+      "dlp.tableDataProfiles.delete",
       "dlp.tableDataProfiles.get",
       "dlp.tableDataProfiles.list",
       "dns.changes.create",
@@ -69078,6 +69094,7 @@
       "looker.operations.delete",
       "looker.operations.get",
       "looker.operations.list",
+      "lookerstudio.pro.manage",
       "managedidentities.backups.create",
       "managedidentities.backups.delete",
       "managedidentities.backups.get",
@@ -70984,6 +71001,41 @@
       "stream.streamInstances.rollout",
       "stream.streamInstances.update",
       "subscribewithgoogledeveloper.tools.get",
+      "telcoautomation.blueprints.approve",
+      "telcoautomation.blueprints.create",
+      "telcoautomation.blueprints.delete",
+      "telcoautomation.blueprints.get",
+      "telcoautomation.blueprints.list",
+      "telcoautomation.blueprints.propose",
+      "telcoautomation.blueprints.update",
+      "telcoautomation.deployments.apply",
+      "telcoautomation.deployments.computeStatus",
+      "telcoautomation.deployments.create",
+      "telcoautomation.deployments.delete",
+      "telcoautomation.deployments.get",
+      "telcoautomation.deployments.list",
+      "telcoautomation.deployments.rollback",
+      "telcoautomation.deployments.update",
+      "telcoautomation.edgeSlms.create",
+      "telcoautomation.edgeSlms.delete",
+      "telcoautomation.edgeSlms.get",
+      "telcoautomation.edgeSlms.list",
+      "telcoautomation.hydratedDeployments.apply",
+      "telcoautomation.hydratedDeployments.get",
+      "telcoautomation.hydratedDeployments.list",
+      "telcoautomation.hydratedDeployments.update",
+      "telcoautomation.locations.get",
+      "telcoautomation.locations.list",
+      "telcoautomation.operations.cancel",
+      "telcoautomation.operations.delete",
+      "telcoautomation.operations.get",
+      "telcoautomation.operations.list",
+      "telcoautomation.orchestrationClusters.create",
+      "telcoautomation.orchestrationClusters.delete",
+      "telcoautomation.orchestrationClusters.get",
+      "telcoautomation.orchestrationClusters.list",
+      "telcoautomation.publicBlueprints.get",
+      "telcoautomation.publicBlueprints.list",
       "timeseriesinsights.datasets.create",
       "timeseriesinsights.datasets.delete",
       "timeseriesinsights.datasets.evaluate",
@@ -80935,6 +80987,7 @@
       "storage.objects.setIamPolicy",
       "storage.objects.update"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -81169,6 +81222,8 @@
     "title": "StorageInsights Service Agent",
     "description": "Permissions for Insights to write reports into customer project",
     "includedPermissions": [
+      "bigquery.datasets.create",
+      "serviceusage.services.use",
       "storageinsights.reportDetails.list"
     ],
     "stage": "GA",
@@ -81523,6 +81578,7 @@
       "telcoautomation.publicBlueprints.get",
       "telcoautomation.publicBlueprints.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -81546,6 +81602,7 @@
       "telcoautomation.publicBlueprints.get",
       "telcoautomation.publicBlueprints.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -81570,6 +81627,7 @@
       "telcoautomation.orchestrationClusters.get",
       "telcoautomation.orchestrationClusters.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -81615,6 +81673,7 @@
       "telcoautomation.orchestrationClusters.get",
       "telcoautomation.orchestrationClusters.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -81667,6 +81726,7 @@
       "telcoautomation.orchestrationClusters.get",
       "telcoautomation.orchestrationClusters.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -81691,6 +81751,7 @@
       "telcoautomation.orchestrationClusters.get",
       "telcoautomation.orchestrationClusters.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
