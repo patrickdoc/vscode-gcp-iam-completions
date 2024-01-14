@@ -1061,6 +1061,7 @@
       "aiplatform.featureViews.fetchFeatureValues",
       "aiplatform.featureViews.get",
       "aiplatform.featureViews.list",
+      "aiplatform.featureViews.searchNearestEntities",
       "aiplatform.features.create",
       "aiplatform.features.delete",
       "aiplatform.features.get",
@@ -1108,6 +1109,7 @@
       "aiplatform.featureViews.fetchFeatureValues",
       "aiplatform.featureViews.get",
       "aiplatform.featureViews.list",
+      "aiplatform.featureViews.searchNearestEntities",
       "aiplatform.featureViews.sync",
       "aiplatform.featureViews.update",
       "aiplatform.features.create",
@@ -1152,6 +1154,7 @@
       "aiplatform.featureViews.fetchFeatureValues",
       "aiplatform.featureViews.get",
       "aiplatform.featureViews.list",
+      "aiplatform.featureViews.searchNearestEntities",
       "aiplatform.features.get",
       "aiplatform.features.list",
       "aiplatform.featurestores.batchReadFeatureValues",
@@ -1182,6 +1185,7 @@
       "aiplatform.featureViews.fetchFeatureValues",
       "aiplatform.featureViews.get",
       "aiplatform.featureViews.list",
+      "aiplatform.featureViews.searchNearestEntities",
       "aiplatform.features.get",
       "aiplatform.features.list",
       "aiplatform.featurestores.batchReadFeatureValues",
@@ -4777,6 +4781,7 @@
     "description": "Gives the Artifact Registry service account access to managed resources.",
     "includedPermissions": [
       "artifactregistry.repositories.downloadArtifacts",
+      "artifactregistry.repositories.get",
       "artifactregistry.repositories.readViaVirtualRepository",
       "artifactregistry.versions.delete",
       "pubsub.topics.publish"
@@ -22246,12 +22251,20 @@
       "connectors.connections.update",
       "connectors.connectors.get",
       "connectors.connectors.list",
+      "connectors.customConnectorVersions.create",
+      "connectors.customConnectorVersions.delete",
       "connectors.customConnectorVersions.get",
       "connectors.customConnectorVersions.getIamPolicy",
       "connectors.customConnectorVersions.list",
+      "connectors.customConnectorVersions.setIamPolicy",
+      "connectors.customConnectorVersions.update",
+      "connectors.customConnectors.create",
+      "connectors.customConnectors.delete",
       "connectors.customConnectors.get",
       "connectors.customConnectors.getIamPolicy",
       "connectors.customConnectors.list",
+      "connectors.customConnectors.setIamPolicy",
+      "connectors.customConnectors.update",
       "connectors.endpointAttachments.create",
       "connectors.endpointAttachments.delete",
       "connectors.endpointAttachments.get",
@@ -29332,6 +29345,7 @@
       "datamigration.connectionprofiles.list",
       "datamigration.connectionprofiles.setIamPolicy",
       "datamigration.connectionprofiles.update",
+      "datamigration.conversionworkspaces.apply",
       "datamigration.conversionworkspaces.commit",
       "datamigration.conversionworkspaces.convert",
       "datamigration.conversionworkspaces.create",
@@ -33447,7 +33461,7 @@
       "discoveryengine.widgetConfigs.get",
       "discoveryengine.widgetConfigs.update"
     ],
-    "stage": "BETA",
+    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -33501,7 +33515,7 @@
       "discoveryengine.widgetConfigs.get",
       "discoveryengine.widgetConfigs.update"
     ],
-    "stage": "BETA",
+    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -33581,7 +33595,7 @@
       "discoveryengine.userEvents.fetchStats",
       "discoveryengine.widgetConfigs.get"
     ],
-    "stage": "BETA",
+    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -40017,6 +40031,7 @@
       "datamigration.connectionprofiles.getIamPolicy",
       "datamigration.connectionprofiles.list",
       "datamigration.connectionprofiles.update",
+      "datamigration.conversionworkspaces.apply",
       "datamigration.conversionworkspaces.commit",
       "datamigration.conversionworkspaces.convert",
       "datamigration.conversionworkspaces.create",
@@ -49454,6 +49469,7 @@
       "gkehub.gateway.post",
       "gkehub.gateway.put",
       "gkehub.gateway.setIamPolicy",
+      "gkehub.memberships.get",
       "serviceusage.services.get"
     ],
     "stage": "GA",
@@ -49469,6 +49485,7 @@
       "gkehub.gateway.patch",
       "gkehub.gateway.post",
       "gkehub.gateway.put",
+      "gkehub.memberships.get",
       "serviceusage.services.get"
     ],
     "stage": "GA",
@@ -49480,6 +49497,7 @@
     "description": "Read-only access to Connect Gateway.",
     "includedPermissions": [
       "gkehub.gateway.get",
+      "gkehub.memberships.get",
       "serviceusage.services.get"
     ],
     "stage": "GA",
@@ -49656,6 +49674,9 @@
       "binaryauthorization.policy.evaluatePolicy",
       "binaryauthorization.policy.get",
       "cloudnotifications.activities.list",
+      "kubernetesmetadata.metadata.config",
+      "kubernetesmetadata.metadata.publish",
+      "kubernetesmetadata.metadata.snapshot",
       "logging.logEntries.create",
       "logging.logEntries.route",
       "monitoring.alertPolicies.get",
@@ -69279,6 +69300,7 @@
       "datamigration.connectionprofiles.list",
       "datamigration.connectionprofiles.setIamPolicy",
       "datamigration.connectionprofiles.update",
+      "datamigration.conversionworkspaces.apply",
       "datamigration.conversionworkspaces.commit",
       "datamigration.conversionworkspaces.convert",
       "datamigration.conversionworkspaces.create",
