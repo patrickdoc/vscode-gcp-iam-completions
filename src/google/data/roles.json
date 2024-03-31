@@ -1116,6 +1116,37 @@
     "etag": "AA=="
   },
   {
+    "name": "roles/aiplatform.extensionCustomCodeServiceAgent",
+    "title": "Vertex AI Extension Custom Code Service Agent",
+    "description": "Gives Vertex AI Extension that executes custom code the permissions it needs to function.",
+    "includedPermissions": [
+      "logging.logEntries.create",
+      "logging.logEntries.route",
+      "orgpolicy.policy.get",
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list",
+      "storage.managedFolders.create",
+      "storage.managedFolders.delete",
+      "storage.managedFolders.get",
+      "storage.managedFolders.list",
+      "storage.multipartUploads.abort",
+      "storage.multipartUploads.create",
+      "storage.multipartUploads.list",
+      "storage.multipartUploads.listParts",
+      "storage.objects.create",
+      "storage.objects.delete",
+      "storage.objects.get",
+      "storage.objects.getIamPolicy",
+      "storage.objects.list",
+      "storage.objects.overrideUnlockedRetention",
+      "storage.objects.restore",
+      "storage.objects.setIamPolicy",
+      "storage.objects.setRetention",
+      "storage.objects.update"
+    ],
+    "etag": "AA=="
+  },
+  {
     "name": "roles/aiplatform.extensionServiceAgent",
     "title": "Vertex AI Extension Service Agent",
     "description": "Gives Vertex AI Extension the permissions it needs to function.",
@@ -10236,6 +10267,7 @@
       "chronicle.forwarders.update",
       "chronicle.globalDataAccessScopes.permit",
       "chronicle.instances.generateSoarAuthJwt",
+      "chronicle.instances.generateWorkspaceConnectionToken",
       "chronicle.instances.get",
       "chronicle.instances.report",
       "chronicle.iocMatches.get",
@@ -10454,6 +10486,7 @@
       "chronicle.forwarders.list",
       "chronicle.globalDataAccessScopes.permit",
       "chronicle.instances.generateSoarAuthJwt",
+      "chronicle.instances.generateWorkspaceConnectionToken",
       "chronicle.instances.get",
       "chronicle.instances.report",
       "chronicle.legacies.legacyBatchGetCases",
@@ -10675,6 +10708,7 @@
       "chronicle.findingsGraphs.exploreNode",
       "chronicle.findingsGraphs.initializeGraph",
       "chronicle.instances.generateSoarAuthJwt",
+      "chronicle.instances.generateWorkspaceConnectionToken",
       "chronicle.instances.get",
       "chronicle.instances.report",
       "chronicle.legacies.legacyBatchGetCases",
@@ -10876,6 +10910,7 @@
       "chronicle.forwarders.list",
       "chronicle.globalDataAccessScopes.permit",
       "chronicle.instances.generateSoarAuthJwt",
+      "chronicle.instances.generateWorkspaceConnectionToken",
       "chronicle.instances.get",
       "chronicle.instances.report",
       "chronicle.legacies.legacyBatchGetCases",
@@ -10998,6 +11033,10 @@
       "cloudaicompanion.companions.generateChat",
       "cloudaicompanion.companions.generateCode",
       "cloudaicompanion.entitlements.get",
+      "cloudaicompanion.instances.completeCode",
+      "cloudaicompanion.instances.completeTask",
+      "cloudaicompanion.instances.generateCode",
+      "cloudaicompanion.instances.generateText",
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
@@ -17514,6 +17553,8 @@
     "title": "Commerce Organization Governance Admin",
     "description": "Full access to Organization Governance APIs",
     "includedPermissions": [
+      "commerceorggovernance.collectionRequestApprovals.list",
+      "commerceorggovernance.collectionRequestApprovals.review",
       "commerceorggovernance.collections.create",
       "commerceorggovernance.collections.delete",
       "commerceorggovernance.collections.get",
@@ -17527,11 +17568,26 @@
       "commerceorggovernance.populateCollectionJobs.list",
       "commerceorggovernance.populateCollectionJobs.run",
       "commerceorggovernance.populateCollectionJobs.update",
+      "commerceorggovernance.services.get",
       "commerceorggovernance.services.list",
+      "commerceorggovernance.services.request",
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
     "stage": "BETA",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/commerceorggovernance.user",
+    "title": "Governed Marketplace User",
+    "description": "Full access to Governed Marketplace features.",
+    "includedPermissions": [
+      "commerceorggovernance.services.get",
+      "commerceorggovernance.services.list",
+      "commerceorggovernance.services.request",
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list"
+    ],
     "etag": "AA=="
   },
   {
@@ -17544,6 +17600,7 @@
       "commerceorggovernance.consumerSharingPolicies.get",
       "commerceorggovernance.organizationSettings.get",
       "commerceorggovernance.populateCollectionJobs.list",
+      "commerceorggovernance.services.get",
       "commerceorggovernance.services.list",
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
@@ -25811,6 +25868,20 @@
       "resourcemanager.projects.list"
     ],
     "stage": "GA",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/container.defaultNodeServiceAccount",
+    "title": "Kubernetes Engine Default Node Service Account",
+    "description": "Least privilege role to use as the default service account for GKE Nodes.",
+    "includedPermissions": [
+      "autoscaling.sites.writeMetrics",
+      "logging.logEntries.create",
+      "monitoring.metricDescriptors.create",
+      "monitoring.metricDescriptors.list",
+      "monitoring.timeSeries.create",
+      "monitoring.timeSeries.list"
+    ],
     "etag": "AA=="
   },
   {
@@ -41104,6 +41175,10 @@
       "cloudaicompanion.companions.generateChat",
       "cloudaicompanion.companions.generateCode",
       "cloudaicompanion.entitlements.get",
+      "cloudaicompanion.instances.completeCode",
+      "cloudaicompanion.instances.completeTask",
+      "cloudaicompanion.instances.generateCode",
+      "cloudaicompanion.instances.generateText",
       "cloudasset.assets.analyzeIamPolicy",
       "cloudasset.assets.analyzeMove",
       "cloudasset.assets.analyzeOrgPolicy",
@@ -41711,6 +41786,8 @@
       "commerceoffercatalog.documents.get",
       "commerceoffercatalog.documents.list",
       "commerceoffercatalog.offers.get",
+      "commerceorggovernance.collectionRequestApprovals.list",
+      "commerceorggovernance.collectionRequestApprovals.review",
       "commerceorggovernance.collections.create",
       "commerceorggovernance.collections.delete",
       "commerceorggovernance.collections.get",
@@ -41724,7 +41801,9 @@
       "commerceorggovernance.populateCollectionJobs.list",
       "commerceorggovernance.populateCollectionJobs.run",
       "commerceorggovernance.populateCollectionJobs.update",
+      "commerceorggovernance.services.get",
       "commerceorggovernance.services.list",
+      "commerceorggovernance.services.request",
       "commerceprice.privateoffers.cancel",
       "commerceprice.privateoffers.create",
       "commerceprice.privateoffers.delete",
@@ -50673,6 +50752,15 @@
     "etag": "AA=="
   },
   {
+    "name": "roles/firebaseml.serviceAgent",
+    "title": "Firebase Machine Learning Service Agent",
+    "description": "Access to Cloud ML and AI resources used by Firebase ML",
+    "includedPermissions": [
+      "aiplatform.endpoints.predict"
+    ],
+    "etag": "AA=="
+  },
+  {
     "name": "roles/firebaseml.viewer",
     "title": "Firebase ML Kit Viewer",
     "description": "Read-only access to Firebase ML Kit resources.",
@@ -54950,6 +55038,7 @@
       "commercebusinessenablement.resellerRestrictions.list",
       "commerceoffercatalog.agreements.list",
       "commerceoffercatalog.documents.list",
+      "commerceorggovernance.collectionRequestApprovals.list",
       "commerceorggovernance.collections.list",
       "commerceorggovernance.populateCollectionJobs.list",
       "commerceorggovernance.services.list",
@@ -57000,6 +57089,7 @@
       "commercebusinessenablement.resellerRestrictions.list",
       "commerceoffercatalog.agreements.list",
       "commerceoffercatalog.documents.list",
+      "commerceorggovernance.collectionRequestApprovals.list",
       "commerceorggovernance.collections.list",
       "commerceorggovernance.populateCollectionJobs.list",
       "commerceorggovernance.services.list",
@@ -70161,6 +70251,7 @@
       "chronicle.forwarders.update",
       "chronicle.globalDataAccessScopes.permit",
       "chronicle.instances.generateSoarAuthJwt",
+      "chronicle.instances.generateWorkspaceConnectionToken",
       "chronicle.instances.get",
       "chronicle.instances.report",
       "chronicle.instances.soarAdmin",
@@ -70310,6 +70401,10 @@
       "cloudaicompanion.companions.generateChat",
       "cloudaicompanion.companions.generateCode",
       "cloudaicompanion.entitlements.get",
+      "cloudaicompanion.instances.completeCode",
+      "cloudaicompanion.instances.completeTask",
+      "cloudaicompanion.instances.generateCode",
+      "cloudaicompanion.instances.generateText",
       "cloudasset.assets.analyzeIamPolicy",
       "cloudasset.assets.analyzeMove",
       "cloudasset.assets.analyzeOrgPolicy",
@@ -71424,6 +71519,8 @@
       "commerceoffercatalog.documents.get",
       "commerceoffercatalog.documents.list",
       "commerceoffercatalog.offers.get",
+      "commerceorggovernance.collectionRequestApprovals.list",
+      "commerceorggovernance.collectionRequestApprovals.review",
       "commerceorggovernance.collections.create",
       "commerceorggovernance.collections.delete",
       "commerceorggovernance.collections.get",
@@ -71437,7 +71534,9 @@
       "commerceorggovernance.populateCollectionJobs.list",
       "commerceorggovernance.populateCollectionJobs.run",
       "commerceorggovernance.populateCollectionJobs.update",
+      "commerceorggovernance.services.get",
       "commerceorggovernance.services.list",
+      "commerceorggovernance.services.request",
       "commerceprice.events.get",
       "commerceprice.events.list",
       "commerceprice.privateoffers.cancel",
@@ -90675,6 +90774,7 @@
       "commerceorggovernance.consumerSharingPolicies.get",
       "commerceorggovernance.organizationSettings.get",
       "commerceorggovernance.populateCollectionJobs.list",
+      "commerceorggovernance.services.get",
       "commerceorggovernance.services.list",
       "commerceprice.privateoffers.get",
       "commerceprice.privateoffers.list",
