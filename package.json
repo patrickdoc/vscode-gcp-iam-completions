@@ -8,7 +8,7 @@
     "email": "patrick.dougherty.0208@gmail.com"
   },
   "license": "MIT",
-  "version": "1.1.32",
+  "version": "1.1.33",
   "bugs": "https://github.com/patrickdoc/vscode-gcp-iam-completions/issues",
   "repository": {
     "type": "git",
