@@ -4447,7 +4447,7 @@
   {
     "name": "roles/apihub.admin",
     "title": "Cloud API Hub Admin",
-    "description": "Full access to all API hub resources.",
+    "description": "Full access to Cloud API Hub Registry and Runtime resources.",
     "includedPermissions": [
       "apihub.apiHubInstances.create",
       "apihub.apiHubInstances.delete",
@@ -4530,8 +4530,8 @@
   },
   {
     "name": "roles/apihub.attributeAdmin",
-    "title": "Cloud API hub Attributes Admin",
-    "description": "Full access to all Cloud API hub attribute's resources.",
+    "title": "API hub attribute admin",
+    "description": "API hub attribute admin",
     "includedPermissions": [
       "apihub.attributes.create",
       "apihub.attributes.delete",
@@ -4547,7 +4547,7 @@
   {
     "name": "roles/apihub.editor",
     "title": "Cloud API Hub Editor",
-    "description": "Edit access to most of Cloud API Hub resources.",
+    "description": "Edit access to Cloud API Hub Registry resources.",
     "includedPermissions": [
       "apihub.apiHubInstances.get",
       "apihub.apiHubInstances.list",
@@ -4611,8 +4611,8 @@
   },
   {
     "name": "roles/apihub.pluginAdmin",
-    "title": "Cloud API hub Plugins Admin",
-    "description": "Full access to all Cloud API hub plugin's resources.",
+    "title": "API hub plugin admin",
+    "description": "API hub plugin admin",
     "includedPermissions": [
       "apihub.plugins.disable",
       "apihub.plugins.enable",
@@ -4629,8 +4629,8 @@
   },
   {
     "name": "roles/apihub.provisioningAdmin",
-    "title": "Cloud API hub Provisioning Admin",
-    "description": "Full access to Cloud API hub provisioning related resources.",
+    "title": "API hub all permissions related to provisioning",
+    "description": "API hub all permissions related to provisioning",
     "includedPermissions": [
       "apihub.apiHubInstances.create",
       "apihub.apiHubInstances.delete",
@@ -4661,17 +4661,14 @@
       "apigee.deployments.list",
       "apigee.envgroupattachments.list",
       "apigee.envgroups.list",
-      "apigee.environments.get",
-      "apigee.organizations.get",
       "apigee.proxyrevisions.get"
     ],
-    "stage": "GA",
     "etag": "AA=="
   },
   {
     "name": "roles/apihub.viewer",
-    "title": "Cloud API hub Viewer",
-    "description": "View access to all Cloud API hub resources.",
+    "title": "API hub all resource viewer",
+    "description": "This role can view all resources in API hub",
     "includedPermissions": [
       "apihub.apiHubInstances.get",
       "apihub.apiHubInstances.list",
@@ -4737,7 +4734,6 @@
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
-    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -4796,7 +4792,6 @@
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
-    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -10444,7 +10439,6 @@
       "capacityplanner.usageHistories.summarize",
       "cloudquotas.quotas.get",
       "monitoring.timeSeries.list",
-      "resourcemanager.folders.get",
       "resourcemanager.organizations.get",
       "resourcemanager.projects.get",
       "resourcemanager.projects.list",
@@ -11528,7 +11522,6 @@
       "cloudasset.assets.exportResource",
       "resourcemanager.organizations.get"
     ],
-    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -13493,7 +13486,7 @@
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
-    "stage": "GA",
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -21819,7 +21812,6 @@
       "compute.regions.list",
       "compute.reservations.get",
       "compute.reservations.list",
-      "compute.resourcePolicies.list",
       "compute.resourcePolicies.useReadOnly",
       "compute.storagePools.get",
       "compute.storagePools.list",
@@ -34712,7 +34704,6 @@
       "compute.regions.list",
       "compute.reservations.get",
       "compute.reservations.list",
-      "compute.resourcePolicies.list",
       "compute.resourcePolicies.useReadOnly",
       "compute.storagePools.get",
       "compute.storagePools.list",
@@ -35551,7 +35542,6 @@
       "datastudio.workspaces.search",
       "resourcemanager.projects.get"
     ],
-    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -35736,6 +35726,48 @@
       "serviceusage.services.list"
     ],
     "stage": "GA",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/developerconnect.admin",
+    "title": "Developer Connect Admin",
+    "description": "Full access to Developer Connect resources.",
+    "includedPermissions": [
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list"
+    ],
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/developerconnect.readTokenAccessor",
+    "title": "Developer Connect Read Token Accessor",
+    "description": "Grants access to Read-Only tokens (both PAT and short-lived). Also grants access to view the git repository link.",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/developerconnect.tokenAccessor",
+    "title": "Developer Connect Token Accessor",
+    "description": "Grants access to Read/Write and Read-Only tokens (both PAT and short-lived). Also grants access to view the git repository link.",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/developerconnect.user",
+    "title": "Developer Connect User",
+    "description": "Grants access to view the connection and to the features that interact with the actual repository such as reading content from the repository",
+    "includedPermissions": [
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list"
+    ],
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/developerconnect.viewer",
+    "title": "Developer Connect Viewer",
+    "description": "Readonly access to Developer Connect resources.",
+    "includedPermissions": [
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list"
+    ],
     "etag": "AA=="
   },
   {
@@ -39494,6 +39526,21 @@
       "resourcemanager.projects.list"
     ],
     "stage": "GA",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/dns.serviceAgent",
+    "title": "Cloud DNS Service Agent",
+    "description": "Gives Cloud DNS Service Agent access to Cloud Platform resources.",
+    "includedPermissions": [
+      "compute.globalNetworkEndpointGroups.attachNetworkEndpoints",
+      "compute.globalNetworkEndpointGroups.create",
+      "compute.globalNetworkEndpointGroups.delete",
+      "compute.globalNetworkEndpointGroups.detachNetworkEndpoints",
+      "compute.globalNetworkEndpointGroups.get",
+      "compute.globalOperations.get",
+      "compute.healthChecks.get"
+    ],
     "etag": "AA=="
   },
   {
@@ -47656,7 +47703,6 @@
       "securitycenter.virtualmachinethreatdetectionsettings.calculate",
       "securitycenter.virtualmachinethreatdetectionsettings.get",
       "securitycenter.virtualmachinethreatdetectionsettings.update",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycenter.websecurityscannersettings.calculate",
       "securitycenter.websecurityscannersettings.get",
       "securitycenter.websecurityscannersettings.update",
@@ -51252,7 +51298,6 @@
       "cloudsql.users.create",
       "cloudsql.users.get"
     ],
-    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -53840,6 +53885,62 @@
     "etag": "AA=="
   },
   {
+    "name": "roles/gkehub.scopeAdmin",
+    "title": "Fleet Scope Admin",
+    "description": "Admin access to Fleet Scopes to set IAM Bindings and RBACRoleBindings.",
+    "includedPermissions": [
+      "gkehub.namespaces.create",
+      "gkehub.namespaces.delete",
+      "gkehub.namespaces.get",
+      "gkehub.namespaces.list",
+      "gkehub.rbacrolebindings.create",
+      "gkehub.rbacrolebindings.delete",
+      "gkehub.rbacrolebindings.get",
+      "gkehub.rbacrolebindings.list",
+      "gkehub.rbacrolebindings.update",
+      "gkehub.scopes.get",
+      "gkehub.scopes.getIamPolicy",
+      "gkehub.scopes.listBoundMemberships",
+      "gkehub.scopes.setIamPolicy"
+    ],
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/gkehub.scopeEditor",
+    "title": "Fleet Scope Editor",
+    "description": "Edit access to Namespaces under Fleet Scopes.",
+    "includedPermissions": [
+      "gkehub.namespaces.create",
+      "gkehub.namespaces.delete",
+      "gkehub.namespaces.get",
+      "gkehub.namespaces.list",
+      "gkehub.rbacrolebindings.get",
+      "gkehub.rbacrolebindings.list",
+      "gkehub.scopes.get",
+      "gkehub.scopes.getIamPolicy",
+      "gkehub.scopes.listBoundMemberships"
+    ],
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/gkehub.scopeEditorProjectLevel",
+    "title": "Fleet Project-level Scope Editor",
+    "description": "Role for project-level permissions for editor of Fleet Scopes.",
+    "includedPermissions": [
+      "gkehub.gateway.delete",
+      "gkehub.gateway.get",
+      "gkehub.gateway.patch",
+      "gkehub.gateway.post",
+      "gkehub.gateway.put",
+      "gkehub.memberships.get",
+      "gkehub.operations.get",
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list",
+      "serviceusage.services.get"
+    ],
+    "etag": "AA=="
+  },
+  {
     "name": "roles/gkehub.scopeViewer",
     "title": "Fleet Scope Viewer",
     "description": "Viewer of Fleet Scopes and associated resources.",
@@ -53853,6 +53954,19 @@
       "gkehub.scopes.listBoundMemberships"
     ],
     "stage": "GA",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/gkehub.scopeViewerProjectLevel",
+    "title": "Fleet Project-level Scope Viewer",
+    "description": "Role for project-level permissions for viewer of Fleet Scopes.",
+    "includedPermissions": [
+      "gkehub.gateway.get",
+      "gkehub.memberships.get",
+      "resourcemanager.projects.get",
+      "resourcemanager.projects.list",
+      "serviceusage.services.get"
+    ],
     "etag": "AA=="
   },
   {
@@ -55068,7 +55182,7 @@
   {
     "name": "roles/healthcare.serviceAgent",
     "title": "Healthcare Service Agent",
-    "description": "Gives the Healthcare Service Account access to networks, Kubernetes engine, and Pub/Sub resources.",
+    "description": "Gives the Healthcare Service Account access to networks,Kubernetes engine, and pubsub resources.",
     "includedPermissions": [
       "cloudnotifications.activities.list",
       "monitoring.alertPolicies.get",
@@ -56328,6 +56442,10 @@
       "deploymentmanager.resources.list",
       "deploymentmanager.typeProviders.list",
       "deploymentmanager.types.list",
+      "developerconnect.connections.list",
+      "developerconnect.gitRepositoryLinks.list",
+      "developerconnect.locations.list",
+      "developerconnect.operations.list",
       "dialogflow.agents.list",
       "dialogflow.answerrecords.list",
       "dialogflow.callMatchers.list",
@@ -57070,8 +57188,6 @@
       "recommender.gmpProjectManagementRecommendations.list",
       "recommender.gmpProjectProductSuggestionsInsights.list",
       "recommender.gmpProjectProductSuggestionsRecommendations.list",
-      "recommender.gmpProjectQuotaInsights.list",
-      "recommender.gmpProjectQuotaRecommendations.list",
       "recommender.iamPolicyChangeRiskInsights.list",
       "recommender.iamPolicyChangeRiskRecommendations.list",
       "recommender.iamPolicyInsights.list",
@@ -57203,7 +57319,6 @@
       "securitycenter.sources.list",
       "securitycenter.sources.setIamPolicy",
       "securitycenter.valuedresources.list",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycentermanagement.effectiveEventThreatDetectionCustomModules.list",
       "securitycentermanagement.effectiveSecurityHealthAnalyticsCustomModules.list",
       "securitycentermanagement.eventThreatDetectionCustomModules.list",
@@ -58343,6 +58458,10 @@
       "deploymentmanager.resources.list",
       "deploymentmanager.typeProviders.list",
       "deploymentmanager.types.list",
+      "developerconnect.connections.list",
+      "developerconnect.gitRepositoryLinks.list",
+      "developerconnect.locations.list",
+      "developerconnect.operations.list",
       "dialogflow.agents.list",
       "dialogflow.answerrecords.list",
       "dialogflow.callMatchers.list",
@@ -58984,8 +59103,6 @@
       "recommender.gmpProjectManagementRecommendations.list",
       "recommender.gmpProjectProductSuggestionsInsights.list",
       "recommender.gmpProjectProductSuggestionsRecommendations.list",
-      "recommender.gmpProjectQuotaInsights.list",
-      "recommender.gmpProjectQuotaRecommendations.list",
       "recommender.iamPolicyChangeRiskInsights.list",
       "recommender.iamPolicyChangeRiskRecommendations.list",
       "recommender.iamPolicyInsights.list",
@@ -59103,7 +59220,6 @@
       "securitycenter.sources.getIamPolicy",
       "securitycenter.sources.list",
       "securitycenter.valuedresources.list",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycentermanagement.effectiveEventThreatDetectionCustomModules.list",
       "securitycentermanagement.effectiveSecurityHealthAnalyticsCustomModules.list",
       "securitycentermanagement.eventThreatDetectionCustomModules.list",
@@ -62945,6 +63061,44 @@
       "resourcemanager.projects.list"
     ],
     "stage": "GA",
+    "etag": "AA=="
+  },
+  {
+    "name": "roles/managedkafka.serviceAgent",
+    "title": "Managed Kafka Service Agent",
+    "description": "Gives Managed Kafka Service Agent access to Cloud Platform resources.",
+    "includedPermissions": [
+      "compute.addresses.create",
+      "compute.addresses.createInternal",
+      "compute.addresses.delete",
+      "compute.addresses.deleteInternal",
+      "compute.addresses.list",
+      "compute.addresses.use",
+      "compute.addresses.useInternal",
+      "compute.forwardingRules.create",
+      "compute.forwardingRules.delete",
+      "compute.forwardingRules.list",
+      "compute.forwardingRules.pscCreate",
+      "compute.forwardingRules.pscDelete",
+      "compute.networks.get",
+      "compute.networks.use",
+      "compute.regionOperations.get",
+      "compute.subnetworks.get",
+      "compute.subnetworks.use",
+      "dns.changes.create",
+      "dns.managedZones.create",
+      "dns.managedZones.delete",
+      "dns.managedZones.list",
+      "dns.networks.bindPrivateDNSZone",
+      "dns.networks.targetWithPeeringZone",
+      "dns.resourceRecordSets.create",
+      "dns.resourceRecordSets.delete",
+      "dns.resourceRecordSets.list",
+      "dns.resourceRecordSets.update",
+      "servicedirectory.namespaces.create",
+      "servicedirectory.services.create",
+      "servicedirectory.services.delete"
+    ],
     "etag": "AA=="
   },
   {
@@ -69552,8 +69706,6 @@
       "compute.instances.getGuestAttributes",
       "compute.instances.list",
       "compute.instances.setMetadata",
-      "compute.projects.get",
-      "compute.projects.setCommonInstanceMetadata",
       "compute.zones.get",
       "compute.zones.list",
       "containeranalysis.notes.attachOccurrence",
@@ -69568,8 +69720,6 @@
       "containeranalysis.occurrences.list",
       "containeranalysis.occurrences.update",
       "iam.serviceAccounts.actAs",
-      "osconfig.projectFeatureSettings.get",
-      "osconfig.projectFeatureSettings.update",
       "resourcemanager.projects.get",
       "resourcemanager.projects.list"
     ],
@@ -74832,6 +74982,30 @@
       "deploymentmanager.types.get",
       "deploymentmanager.types.list",
       "deploymentmanager.types.update",
+      "developerconnect.connections.constructGitHubAppManifest",
+      "developerconnect.connections.create",
+      "developerconnect.connections.delete",
+      "developerconnect.connections.fetchGitHubInstallations",
+      "developerconnect.connections.fetchLinkableGitRepositories",
+      "developerconnect.connections.generateGitHubStateToken",
+      "developerconnect.connections.get",
+      "developerconnect.connections.list",
+      "developerconnect.connections.processGitHubAppCreationCallback",
+      "developerconnect.connections.processGitHubOAuthCallback",
+      "developerconnect.connections.update",
+      "developerconnect.gitRepositoryLinks.create",
+      "developerconnect.gitRepositoryLinks.delete",
+      "developerconnect.gitRepositoryLinks.fetchGitRefs",
+      "developerconnect.gitRepositoryLinks.fetchReadToken",
+      "developerconnect.gitRepositoryLinks.fetchReadWriteToken",
+      "developerconnect.gitRepositoryLinks.get",
+      "developerconnect.gitRepositoryLinks.list",
+      "developerconnect.locations.get",
+      "developerconnect.locations.list",
+      "developerconnect.operations.cancel",
+      "developerconnect.operations.delete",
+      "developerconnect.operations.get",
+      "developerconnect.operations.list",
       "dialogflow.agents.create",
       "dialogflow.agents.delete",
       "dialogflow.agents.export",
@@ -77715,12 +77889,6 @@
       "recommender.gmpProjectProductSuggestionsRecommendations.get",
       "recommender.gmpProjectProductSuggestionsRecommendations.list",
       "recommender.gmpProjectProductSuggestionsRecommendations.update",
-      "recommender.gmpProjectQuotaInsights.get",
-      "recommender.gmpProjectQuotaInsights.list",
-      "recommender.gmpProjectQuotaInsights.update",
-      "recommender.gmpProjectQuotaRecommendations.get",
-      "recommender.gmpProjectQuotaRecommendations.list",
-      "recommender.gmpProjectQuotaRecommendations.update",
       "recommender.iamPolicyChangeRiskInsights.get",
       "recommender.iamPolicyChangeRiskInsights.list",
       "recommender.iamPolicyChangeRiskInsights.update",
@@ -78238,7 +78406,6 @@
       "securitycenter.virtualmachinethreatdetectionsettings.calculate",
       "securitycenter.virtualmachinethreatdetectionsettings.get",
       "securitycenter.virtualmachinethreatdetectionsettings.update",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycenter.websecurityscannersettings.calculate",
       "securitycenter.websecurityscannersettings.get",
       "securitycenter.websecurityscannersettings.update",
@@ -83993,7 +84160,6 @@
       "securitycenter.userinterfacemetadata.get",
       "securitycenter.virtualmachinethreatdetectionsettings.calculate",
       "securitycenter.virtualmachinethreatdetectionsettings.get",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycenter.websecurityscannersettings.calculate",
       "securitycenter.websecurityscannersettings.get",
       "securitycentermanagement.effectiveEventThreatDetectionCustomModules.get",
@@ -85138,7 +85304,6 @@
       "securitycenter.virtualmachinethreatdetectionsettings.calculate",
       "securitycenter.virtualmachinethreatdetectionsettings.get",
       "securitycenter.virtualmachinethreatdetectionsettings.update",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycenter.websecurityscannersettings.calculate",
       "securitycenter.websecurityscannersettings.get",
       "securitycenter.websecurityscannersettings.update",
@@ -85154,7 +85319,6 @@
       "securitycentermanagement.eventThreatDetectionCustomModules.validate",
       "securitycentermanagement.locations.get",
       "securitycentermanagement.locations.list",
-      "securitycentermanagement.securityCommandCenter.activate",
       "securitycentermanagement.securityCommandCenter.generateServiceAccounts",
       "securitycentermanagement.securityCommandCenter.get",
       "securitycentermanagement.securityCommandCenter.update",
@@ -85317,7 +85481,6 @@
       "securitycenter.valuedresources.list",
       "securitycenter.virtualmachinethreatdetectionsettings.calculate",
       "securitycenter.virtualmachinethreatdetectionsettings.get",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycenter.websecurityscannersettings.calculate",
       "securitycenter.websecurityscannersettings.get",
       "securitycentermanagement.effectiveEventThreatDetectionCustomModules.get",
@@ -85458,7 +85621,6 @@
       "securitycenter.valuedresources.list",
       "securitycenter.virtualmachinethreatdetectionsettings.calculate",
       "securitycenter.virtualmachinethreatdetectionsettings.get",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycenter.websecurityscannersettings.calculate",
       "securitycenter.websecurityscannersettings.get",
       "securitycentermanagement.effectiveEventThreatDetectionCustomModules.get",
@@ -86302,8 +86464,7 @@
       "securitycenter.findings.update",
       "securitycenter.sources.get",
       "securitycenter.sources.list",
-      "securitycenter.userinterfacemetadata.get",
-      "securitycenter.vulnerabilitysnapshots.list"
+      "securitycenter.userinterfacemetadata.get"
     ],
     "stage": "GA",
     "etag": "AA=="
@@ -86344,8 +86505,7 @@
       "securitycenter.findings.listFindingPropertyNames",
       "securitycenter.sources.get",
       "securitycenter.sources.list",
-      "securitycenter.userinterfacemetadata.get",
-      "securitycenter.vulnerabilitysnapshots.list"
+      "securitycenter.userinterfacemetadata.get"
     ],
     "stage": "GA",
     "etag": "AA=="
@@ -87792,7 +87952,6 @@
       "securitycentermanagement.eventThreatDetectionCustomModules.validate",
       "securitycentermanagement.locations.get",
       "securitycentermanagement.locations.list",
-      "securitycentermanagement.securityCommandCenter.activate",
       "securitycentermanagement.securityCommandCenter.generateServiceAccounts",
       "securitycentermanagement.securityCommandCenter.get",
       "securitycentermanagement.securityCommandCenter.update",
@@ -87878,7 +88037,6 @@
       "securitycentermanagement.eventThreatDetectionCustomModules.validate",
       "securitycentermanagement.locations.get",
       "securitycentermanagement.locations.list",
-      "securitycentermanagement.securityCommandCenter.activate",
       "securitycentermanagement.securityCommandCenter.generateServiceAccounts",
       "securitycentermanagement.securityCommandCenter.get",
       "securitycentermanagement.securityCommandCenter.update",
@@ -88036,7 +88194,6 @@
       "securitycentermanagement.eventThreatDetectionCustomModules.validate",
       "securitycentermanagement.locations.get",
       "securitycentermanagement.locations.list",
-      "securitycentermanagement.securityCommandCenter.activate",
       "securitycentermanagement.securityCommandCenter.generateServiceAccounts",
       "securitycentermanagement.securityCommandCenter.get",
       "securitycentermanagement.securityCommandCenter.update",
@@ -88172,7 +88329,6 @@
       "securitycentermanagement.eventThreatDetectionCustomModules.validate",
       "securitycentermanagement.locations.get",
       "securitycentermanagement.locations.list",
-      "securitycentermanagement.securityCommandCenter.activate",
       "securitycentermanagement.securityCommandCenter.generateServiceAccounts",
       "securitycentermanagement.securityCommandCenter.get",
       "securitycentermanagement.securityCommandCenter.update",
@@ -94731,7 +94887,6 @@
       "securitycenter.valuedresources.list",
       "securitycenter.virtualmachinethreatdetectionsettings.calculate",
       "securitycenter.virtualmachinethreatdetectionsettings.get",
-      "securitycenter.vulnerabilitysnapshots.list",
       "securitycenter.websecurityscannersettings.calculate",
       "securitycenter.websecurityscannersettings.get",
       "securitycentermanagement.effectiveEventThreatDetectionCustomModules.get",
