@@ -6022,6 +6022,10 @@
       "assuredworkloads.workload.update",
       "bigquery.config.update",
       "logging.settings.update",
+      "orgpolicy.policies.create",
+      "orgpolicy.policies.delete",
+      "orgpolicy.policies.list",
+      "orgpolicy.policies.update",
       "orgpolicy.policy.get",
       "orgpolicy.policy.set",
       "resourcemanager.folders.create",
@@ -6052,6 +6056,10 @@
       "assuredworkloads.workload.update",
       "bigquery.config.update",
       "logging.settings.update",
+      "orgpolicy.policies.create",
+      "orgpolicy.policies.delete",
+      "orgpolicy.policies.list",
+      "orgpolicy.policies.update",
       "orgpolicy.policy.get",
       "orgpolicy.policy.set",
       "resourcemanager.folders.create",
@@ -6090,6 +6098,7 @@
       "assuredworkloads.violations.list",
       "assuredworkloads.workload.get",
       "assuredworkloads.workload.list",
+      "orgpolicy.policies.list",
       "orgpolicy.policy.get",
       "resourcemanager.folders.get",
       "resourcemanager.folders.list",
@@ -7467,6 +7476,7 @@
     "includedPermissions": [
       "backupdr.managementServers.createConnection"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -16523,6 +16533,7 @@
     "title": "Tech Support Editor",
     "description": "Full read-write access to technical support cases (applicable for GCP Customer Care and Maps support).",
     "includedPermissions": [
+      "billing.resourceAssociations.list",
       "cloudasset.assets.searchAllResources",
       "cloudsupport.properties.get",
       "cloudsupport.techCases.create",
@@ -25481,6 +25492,7 @@
       "container.thirdPartyObjects.update",
       "iam.serviceAccounts.actAs"
     ],
+    "stage": "GA",
     "etag": "AA=="
   },
   {
@@ -85398,6 +85410,7 @@
       "storage.objects.get",
       "storage.objects.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -85489,6 +85502,7 @@
       "storage.objects.get",
       "storage.objects.list"
     ],
+    "stage": "BETA",
     "etag": "AA=="
   },
   {
@@ -99096,6 +99110,11 @@
       "cloudasset.assets.exportOSInventories",
       "cloudasset.assets.exportOrgPolicy",
       "cloudasset.assets.exportResource",
+      "cloudasset.assets.listAccessPolicy",
+      "cloudasset.assets.listIamPolicy",
+      "cloudasset.assets.listOSInventories",
+      "cloudasset.assets.listOrgPolicy",
+      "cloudasset.assets.listResource",
       "cloudasset.assets.searchAllResources",
       "config.deployments.create",
       "config.deployments.delete",
@@ -99116,6 +99135,7 @@
       "monitoring.monitoredResourceDescriptors.get",
       "monitoring.monitoredResourceDescriptors.list",
       "monitoring.timeSeries.list",
+      "serviceusage.services.use",
       "workloadmanager.insights.export"
     ],
     "stage": "GA",
@@ -99316,8 +99336,11 @@
       "compute.regionOperations.get",
       "compute.regions.get",
       "compute.snapshots.create",
+      "compute.snapshots.createTagBinding",
       "compute.snapshots.delete",
+      "compute.snapshots.deleteTagBinding",
       "compute.snapshots.get",
+      "compute.snapshots.listTagBindings",
       "compute.snapshots.setLabels",
       "compute.snapshots.useReadOnly",
       "compute.subnetworks.get",
